@@ -9,7 +9,7 @@ const BarChartAge = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/ageDistribution")
+      .get("https://dashboard-apis-nodejs-express-js.onrender.com/api/ageDistribution")
       .then((response) => {
         const data = response.data;
         // Prepare data for Bar Chart
