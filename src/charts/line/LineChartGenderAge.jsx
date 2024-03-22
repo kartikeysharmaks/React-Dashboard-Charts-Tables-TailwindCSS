@@ -1,4 +1,3 @@
-// GenderAgeLineChart.js
 import React from "react";
 import { Chart } from "react-google-charts";
 import Loader from "../../components/Loader";

@@ -40,11 +40,14 @@ const Table = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/data", {
-        pageIndex: currentPage - 1,
-        pageSize: itemsPerPage,
-        filters,
-      });
+      const response = await axios.post(
+        "https://dashboard-apis-nodejs-express-js.onrender.com/api/data",
+        {
+          pageIndex: currentPage - 1,
+          pageSize: itemsPerPage,
+          filters,
+        }
+      );
       setData(response.data.data);
       console.log(response.data.data);
       setFilteredData(response.data.data);
@@ -64,13 +67,13 @@ const Table = () => {
       );
     });
     setFilteredData(filtered);
-    setCurrentPage(1); // Reset to first page after search
+    setCurrentPage(1);
   };
 
   const handleFilter = (e) => {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
-    setCurrentPage(1); // Reset to first page after filter
+    setCurrentPage(1);
   };
 
   const handlePagination = (pageNumber) => {
@@ -142,7 +145,7 @@ const Table = () => {
       </div>
 
       {/* Table */}
-      <div className="w-[80vw] overflow-x-scroll mx-auto">
+      <div className="w-[70vw] overflow-x-scroll mx-auto">
         <table className="table-auto border-collapse border">
           <thead className="bg-gray-100">
             <tr className="text-[12px] md:text-[15px]">

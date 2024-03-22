@@ -8,7 +8,7 @@ const PieChartLocation = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/locationDistribution")
+      .get("https://dashboard-apis-nodejs-express-js.onrender.com/api/locationDistribution")
       .then((response) => {
         const data = response.data;
         const chartData = [["Location", "Number of Users"]];

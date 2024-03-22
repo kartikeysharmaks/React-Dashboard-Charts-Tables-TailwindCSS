@@ -9,7 +9,7 @@ const PieChartGender = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/genderDistribution")
+      .get("https://dashboard-apis-nodejs-express-js.onrender.com/api/genderDistribution")
       .then((response) => {
         const data = response.data;
 

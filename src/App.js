@@ -14,7 +14,7 @@ import axios from "axios";
 const App = () => {
   const [chartData, setChartData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:5000/api/getalldata')
+    axios.get('https://dashboard-apis-nodejs-express-js.onrender.com/api/getalldata')
       .then(response => {
         const data = response.data;
         // Prepare data for Line Chart

@@ -9,7 +9,7 @@ const PieChartDemographics = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/demographicsDistribution")
+      .get("https://dashboard-apis-nodejs-express-js.onrender.com/api/demographicsDistribution")
       .then((response) => {
         const data = response.data;
         const chartData = [["Demographics", "Number of Users"]];

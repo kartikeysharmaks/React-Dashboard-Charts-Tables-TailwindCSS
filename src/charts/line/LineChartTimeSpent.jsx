@@ -8,7 +8,7 @@ const LineChartTimeSpent = () => {
   const [chartData, setChartData] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:5000/api/averageTimeSpent')
+    axios.get('https://dashboard-apis-nodejs-express-js.onrender.com/api/averageTimeSpent')
       .then(response => {
         const data = response.data;
         // Prepare data for Line Chart

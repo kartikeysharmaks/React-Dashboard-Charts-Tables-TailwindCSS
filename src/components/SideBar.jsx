@@ -22,7 +22,7 @@ const App = () => {
     { title: "Line Chart", src: chartLine, route: "/line-chart" },
     { title: "Geo Chart", src: geoChart, route: "/geo-chart" },
     { title: "StopWatch", src: stopwatch, gap: true, route: "/stopwatch" },
-    { title: "Setting", src: color, route: "/color-picker" },
+    { title: "Color Picker", src: color, route: "/color-picker" },
   ];
 
   return (
@@ -43,6 +43,7 @@ const App = () => {
         <Link to={"/"}>
           <div className="flex gap-x-4 items-center">
             <img
+              loading="lazy"
               src={logo}
               height={30}
               width={30}

@@ -9,7 +9,7 @@ const PieChartInterest = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/interestDistribution")
+      .get("https://dashboard-apis-nodejs-express-js.onrender.com/api/interestDistribution")
       .then((response) => {
         const data = response.data;
         const chartData = [["Interest", "Number of Users"]];

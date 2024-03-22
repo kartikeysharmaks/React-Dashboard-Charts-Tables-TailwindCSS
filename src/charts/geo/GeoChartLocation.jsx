@@ -7,7 +7,7 @@ const GeoChartLocation = () => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/locationDistribution')
+    axios.get('https://dashboard-apis-nodejs-express-js.onrender.com/api/locationDistribution')
       .then(response => {
         const data = response.data;
         const chartData = [['Location', 'Number of Users']];

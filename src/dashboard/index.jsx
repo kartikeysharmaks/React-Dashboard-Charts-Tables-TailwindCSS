@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/getalldata");
+      const response = await axios.get("https://dashboard-apis-nodejs-express-js.onrender.com/api/getalldata");
       setChartData(response.data);
 
       // Calculate statistics
