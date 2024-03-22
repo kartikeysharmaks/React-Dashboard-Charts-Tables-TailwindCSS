@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/SideBar.jsx";
+import Table from "./table/index.jsx";
+import { PieCharts } from "./charts/pie/index.jsx";
+import { BarCharts } from "./charts/bar/index.jsx";
+import GeoChart from "./charts/geo/GeoChartLocation.jsx";
+import Dashboard from "./dashboard/index.jsx";
+import LineCharts from "./charts/line/index.jsx";
+import Stopwatch from "./components/StopWatch.jsx";
+import ColorPicker from "./components/ColorPicker.jsx";
+import axios from "axios";
 
-function App() {
+const App = () => {
+  const [chartData, setChartData] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/getalldata')
+      .then(response => {
+        const data = response.data;
+        // Prepare data for Line Chart
+        setChartData(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <div className="flex max-h-screen bg-gray-50 m-auto">
+          <Sidebar />
+          <div className="overflow-y-scroll scrollbar-hide">
+            <Routes>
+              <Route path="/geo-chart" element={<GeoChart />} />
+              <Route path="/pie-chart" element={<PieCharts />} />
+              <Route path="/bar-chart" element={<BarCharts chartData={chartData}/>} />
+              <Route path="/line-chart" element={<LineCharts chartData={chartData}/>} />
+              <Route path="/table" element={<Table />} />
+              <Route path="/stopwatch" element={<Stopwatch />} />
+              <Route path="/color-picker" element={<ColorPicker />} />
+              <Route path="/" element={<Dashboard />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
