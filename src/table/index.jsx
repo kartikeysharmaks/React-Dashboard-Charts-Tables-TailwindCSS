@@ -145,7 +145,7 @@ const Table = () => {
       </div>
 
       {/* Table */}
-      <div className="w-[70vw] overflow-x-scroll mx-auto">
+      <div className="w-[full] overflow-x-scroll mx-auto">
         <table className="table-auto border-collapse border">
           <thead className="bg-gray-100">
             <tr className="text-[12px] md:text-[15px]">
