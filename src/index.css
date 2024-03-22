@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
 /* width */
 ::-webkit-scrollbar {
     height: 5px;

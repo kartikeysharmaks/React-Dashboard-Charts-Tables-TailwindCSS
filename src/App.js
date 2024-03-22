@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <div className="flex max-h-screen bg-gray-50 m-auto">
+        <div className="flex max-h-screen bg-gray-50 m-auto  font-sans">
           <Sidebar />
           <div className="overflow-y-scroll scrollbar-hide">
             <Routes>

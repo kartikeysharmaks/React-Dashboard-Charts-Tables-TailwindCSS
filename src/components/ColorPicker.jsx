@@ -25,7 +25,7 @@ const ColorPicker = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  h-screen w-[70vw] bg-white m-10">
+    <div className="flex flex-col items-center justify-center  h-[90%] w-[70vw] bg-white m-10">
       <div className="flex  flex-wrap p-4">
         {colors.map((color, index) => (
           <div
