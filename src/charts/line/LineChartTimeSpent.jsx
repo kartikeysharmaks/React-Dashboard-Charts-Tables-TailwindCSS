@@ -1,4 +1,3 @@
-// Import necessary libraries
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Chart } from 'react-google-charts';
@@ -11,7 +10,6 @@ const LineChartTimeSpent = () => {
     axios.get('https://dashboard-apis-nodejs-express-js.onrender.com/api/averageTimeSpent')
       .then(response => {
         const data = response.data;
-        // Prepare data for Line Chart
         const chartData = [['Platform', 'Average Time Spent']];
         data.forEach(item => {
           chartData.push([item._id, item.averageTimeSpent]);

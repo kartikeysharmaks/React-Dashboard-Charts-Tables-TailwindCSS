@@ -1,20 +1,12 @@
 import { Icon } from "@iconify/react";
 import userGroup from "@iconify-icons/mdi/user-group";
 import carIcon from "@iconify-icons/mdi/car";
+import moneyIcon from "@iconify-icons/mdi/money-100";
 import homeIcon from "@iconify-icons/mdi/home";
 import Loader from "../components/Loader";
-import {
-  BarChart,
-  Bar,
-  Pie,
-  ResponsiveContainer,
-  RadialBarChart,
-  RadialBar,
-  PieChart,
-  Cell,
-} from "recharts";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MixedChart from "../charts/MixedChart";
 
 const Dashboard = () => {
   const [chartData, setChartData] = useState([]);
@@ -28,6 +20,7 @@ const Dashboard = () => {
   });
   const [carOwnersCount, setCarOwnersCount] = useState(0);
   const [homeOwnersCount, setHomeOwnersCount] = useState(0);
+  const [userInDebt, setuserInDebt] = useState(0);
   const [interestCounts, setInterestCounts] = useState({});
   const [platformCounts, setPlatformCounts] = useState({});
 
@@ -71,6 +64,11 @@ const Dashboard = () => {
       ).length;
       setHomeOwnersCount(homeOwnersCount);
 
+      const userInDebt = response.data.filter(
+        (user) => user.indebt === "True"
+      ).length;
+      setuserInDebt(userInDebt)
+
       const interestCounts = response.data.reduce((acc, curr) => {
         const interests = curr.interests.split(",");
         interests.forEach((interest) => {
@@ -89,17 +87,6 @@ const Dashboard = () => {
       console.error("Error fetching data:", error);
     }
   };
-
-  const COLORS = [
-    "#0088FE",
-    "#00C49F",
-    "#FFBB28",
-    "#FF8042",
-    "#8884d8",
-    "#82ca9d",
-    "#FF6384",
-    "#36A2EB",
-  ];
   
  
   if (!chartData || chartData.length === 0) {
@@ -107,8 +94,8 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="m-10">
-        <h1 className="p-4 font-bold text-green-400 text-3xl">Dashboard</h1>
+    <div className="m-4 sm:m-10">
+        <h1 className="md:pb-4 font-bold text-green-400 text-4xl">Dashboard<span className="text-blue-500">.</span> </h1>
       <div className="flex flex-wrap overflow-hidden">
         <div className="bg-white h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3">
           <div className="flex justify-between items-center">
@@ -161,73 +148,24 @@ const Dashboard = () => {
             <button className="text-xs text-gray-600">View all</button>
           </div>
         </div>
-        <div className="bg-white h-60 rounded-xl w-full lg:w-80 m-3 flex items-center justify-center ">
-          <ResponsiveContainer>
-            <PieChart width={300} height={300}>
-              <Pie
-                data={Object.entries(genderCounts)}
-                dataKey="1"
-                nameKey="0"
-                innerRadius={50}
-                outerRadius={100}
-                fill="#8884d8"
-              >
-                {Object.entries(genderCounts).map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="bg-white h-60 rounded-xl w-full lg:w-80 m-3 flex items-center justify-center">
-          <ResponsiveContainer>
-            <BarChart
-              width={300}
-              height={300}
-              data={Object.entries(interestCounts)}
+        <div className="bg-white h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3">
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold text-gray-400">Users in Debt</p>
+              <p className="text-2xl text-gray-500">{userInDebt}</p>
+            </div>
+            <button
+              type="button"
+              className="text-2xl opacity-0.9  hover:drop-shadow-xl rounded-full  p-4"
             >
-              <Bar dataKey="1" fill="#82ca9d">
-                {Object.entries(interestCounts).map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+              <Icon icon={moneyIcon} color="gray" />
+            </button>
+          </div>
+          <div className="mt-6">
+            <button className="text-xs text-gray-600">View all</button>
+          </div>
         </div>
-
-        <div className="bg-white h-60 rounded-xl w-full lg:w-80 m-3 flex items-center justify-center">
-          <ResponsiveContainer>
-            <RadialBarChart
-              width={300}
-              height={300}
-              data={Object.entries(platformCounts)}
-            >
-              <RadialBar
-                startAngle={90}
-                endAngle={-270}
-                minAngle={15}
-                background
-                clockWise
-                dataKey="1"
-                fill="#8884d8"
-              >
-                {Object.entries(platformCounts).map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </RadialBar>
-            </RadialBarChart>
-          </ResponsiveContainer>
-        </div>
+        <MixedChart data={chartData}/>
       </div>
     </div>
   );

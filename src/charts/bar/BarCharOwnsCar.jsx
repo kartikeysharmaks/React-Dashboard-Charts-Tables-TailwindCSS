@@ -52,7 +52,7 @@ const BarChartOwnsCar = ({ data }) => {
   return (
     <div className="m-4 md:m-8">
       <h2 className="text-[20px] md:text-[28px] py-2 font-bold">
-        Gender Car Ownership
+        Bar Chart: Gender Car Ownership
       </h2>
       <Chart
         width={"70vw"}
