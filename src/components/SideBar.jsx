@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import chevronLeft from "@iconify-icons/mdi/chevron-left";
 import clipboard from "@iconify-icons/mdi/clipboard-account";
@@ -24,6 +24,17 @@ const App = () => {
     { title: "StopWatch", src: stopwatch, gap: true, route: "/stopwatch" },
     { title: "Color Picker", src: color, route: "/color-picker" },
   ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOpen(window.innerWidth > 768); 
+    };
+
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="flex">

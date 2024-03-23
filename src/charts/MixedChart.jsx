@@ -132,9 +132,9 @@ const MixedChart = ({ data }) => {
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
   return (
-    <div className="container mx-auto md:p-2">
-      <div className="flex flex-wrap gap-16 mt-4">
-        <div className="">
+    <div className="container mx-auto">
+      <div className="flex flex-wrap gap-12 mt-4">
+        <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">
             Platform Usage by Profession
           </h2>
@@ -159,7 +159,7 @@ const MixedChart = ({ data }) => {
           </div>
         </div>
 
-        <div className="">
+        <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">
             Monthly Income Distribution (USD)
           </h2>
@@ -199,7 +199,7 @@ const MixedChart = ({ data }) => {
           </div>
         </div>
 
-        <div className="">
+        <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">
             Age Distribution
           </h2>
@@ -228,7 +228,7 @@ const MixedChart = ({ data }) => {
           </div>
         </div>
 
-        <div className="">
+        <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">
             Profession Distribution
           </h2>
@@ -249,7 +249,7 @@ const MixedChart = ({ data }) => {
           </div>
         </div>
 
-        <div className="">
+        <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">
             Time Spent Distribution
           </h2>
@@ -285,7 +285,7 @@ const MixedChart = ({ data }) => {
           </div>
         </div>
 
-        <div className="">
+        <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">
             Users Financial Asset
           </h2>
