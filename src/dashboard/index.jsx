@@ -95,7 +95,7 @@ const Dashboard = () => {
 
   return (
     <div className="m-4 sm:m-10">
-        <h1 className="md:pb-4 font-bold text-green-400 text-4xl">Dashboard<span className="text-blue-500">.</span> </h1>
+        <h1 className="p-4 font-bold text-green-400 text-4xl">Dashboard<span className="text-blue-500">.</span> </h1>
       <div className="flex flex-wrap overflow-hidden">
         <div className="bg-white h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3">
           <div className="flex justify-between items-center">
