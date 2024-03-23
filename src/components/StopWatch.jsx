@@ -33,7 +33,7 @@ const Stopwatch = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-[90%] w-[70vw] bg-white m-10">
+    <div className="flex flex-col items-center justify-center h-[90%] w-[70vw] bg-white m-5 md:m-10">
       <div className="text-4xl font-bold mb-4">{formatTime(timeElapsed)}</div>
       <div className="flex space-x-4">
         <button

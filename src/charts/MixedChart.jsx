@@ -132,7 +132,7 @@ const MixedChart = ({ data }) => {
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-10">
       <div className="flex flex-wrap gap-12 mt-4">
         <div className="m-3">
           <h2 className="text-lg font-medium mb-2 text-gray-500">

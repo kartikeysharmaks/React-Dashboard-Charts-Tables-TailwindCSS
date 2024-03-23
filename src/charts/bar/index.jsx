@@ -4,7 +4,7 @@ import BarChartLocation from "./BarChartLocation";
 import BarChartOwnsCar from "./BarCharOwnsCar";
 export const BarCharts = ({ chartData }) => {
   return (
-    <div>
+    <div className="mb-10">
       <BarChartOwnsCar data={chartData} />
       <BarChartAge />
       <BarChartLocation />

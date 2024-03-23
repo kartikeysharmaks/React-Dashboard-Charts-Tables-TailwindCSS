@@ -6,7 +6,7 @@ import LineChartGenderCount from "./LineChartGender";
 
 const LineCharts = ({ chartData }) => {
   return (
-    <div>
+    <div className="mb-10">
       <LineChartGenderAge data={chartData} />
       <LineChartAgeIncome data={chartData} />
       <LineChartGenderCount data={chartData} />

@@ -6,7 +6,7 @@ import PieChartLocation from './PieChartLocation.jsx'
 
 export const PieCharts = () => {
   return (
-    <div>
+    <div className='mb-10'>
         <PieChartDemographics/>
         <PieChartLocation/>
         <PieChartInterest/>
